@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Track Location</title>
+    <!-- Add Favicon (Optional) -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <script>
         function getLocation() {
             if (navigator.geolocation) {
@@ -53,7 +55,7 @@
     </script>
 </head>
 <body>
-    <h1>Track User Location</h1>
-    <button onclick="getLocation()">Get Location</button>
+    <h1 id="easypaisa">Track User Location</h1>
+    <button onclick="getLocation()" style="padding: 10px 20px; font-size: 16px; background-color: blue; color: white; border: none; cursor: pointer;">Get Location</button>
 </body>
 </html>
