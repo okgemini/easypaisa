@@ -18,18 +18,8 @@
             const longitude = position.coords.longitude;
             alert(`Your location: Latitude = ${latitude}, Longitude = ${longitude}`);
             
-            // Example: Send the location to a server
-            fetch("https://your-server-url.com/collect", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ latitude, longitude }),
-            }).then(response => {
-                console.log("Location sent to server.");
-            }).catch(error => {
-                console.error("Error sending location to server:", error);
-            });
+            // You can send this data to a server or store it elsewhere.
+            // More on that below.
         }
 
         function showError(error) {
