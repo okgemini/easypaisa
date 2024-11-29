@@ -1,0 +1,2 @@
+# easypaisa
+jazzcash
