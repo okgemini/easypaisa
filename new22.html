@@ -6,7 +6,9 @@
     <title>Location Finder</title>
     <script>
         function getLocation() {
+            // Check if geolocation is supported by the browser
             if (navigator.geolocation) {
+                // If supported, get the current location of the user
                 navigator.geolocation.getCurrentPosition(showPosition, showError);
             } else {
                 alert("Geolocation is not supported by this browser.");
@@ -14,15 +16,25 @@
         }
 
         function showPosition(position) {
+            // Fetch latitude and longitude
             const latitude = position.coords.latitude;
             const longitude = position.coords.longitude;
             alert(`Your location: Latitude = ${latitude}, Longitude = ${longitude}`);
             
-            // You can send this data to a server or store it elsewhere.
-            // More on that below.
+            // Now, fetch the IP address using ipify API
+            fetch('https://api.ipify.org?format=json')  // Call ipify API
+                .then(response => response.json())  // Parse the JSON response
+                .then(data => {
+                    const ip = data.ip;  // Extract the IP address from the JSON
+                    alert(`Your IP Address is: ${ip}`);  // Show the IP address in an alert
+                })
+                .catch(error => {
+                    console.error("Error fetching IP address:", error);  // Handle errors
+                });
         }
 
         function showError(error) {
+            // Show different error messages based on the geolocation error
             switch (error.code) {
                 case error.PERMISSION_DENIED:
                     alert("User denied the request for Geolocation.");
